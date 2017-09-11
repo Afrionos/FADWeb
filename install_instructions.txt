@@ -1,0 +1,31 @@
++ Benötigte Software für:
+# recieve
+sudo apt-get install python-pip
+sudo pip install --upgrade pip
+sudo pip install adblockparser
+
+# analyze
+sudo apt-get install npm
+sudo apt-get install python-mysqldb
+
+# install eslint and plugins
+sudo npm install -g eslint
+sudo npm install -g eslint-plugin-no-unsafe-innerhtml
+sudo npm install -g eslint-plugin-scanjs-rules
+sudo npm install -g eslint-plugin-security
+
+!nodejs6 required for eslint!
+
++ Datenbank anlegen:
+sudo apt-get install mysql-client mysql-server
+mysql -u root -p
+create database jscrawler;
+create user crawler@localhost;
+set password for crawler@localhost = password('CHANGEME');
+grant all on jscrawler.* to crawler@localhost;
+
++ Starten:
+a) Konfigdateien anpassen v.a. analyse.config -> Datenbankinformationen
+1) Command Center starten
+	python ./commandCenter.py
+2) Chromium-Browser starten und Plugin laden

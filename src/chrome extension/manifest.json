@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+
+	"name": "FADWeb Chrome Crawler",
+	"description": "This extension crawls the Web and sends Data to a Command Center",
+	"version": "1.0",
+
+	"background": 
+	{
+		"scripts": ["background.js" ],
+		"persistent": true
+	},
+
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts":
+		[
+		{
+			"matches": ["<all_urls>"],
+			"js": ["jquery-1.10.2.min.js", "content-script.js"],
+			"run_at": "document_start"
+		}
+	],
+	"permissions": [
+		"tabs",
+		"webRequest",
+		"webRequestBlocking",
+		"<all_urls>",
+		"browsingData"
+	],
+	"web_accessible_resources": [
+		"picReplace.jpg"
+	]	
+}
